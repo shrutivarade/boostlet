@@ -1,12 +1,12 @@
 
-// let boostletLoaded = false;
-// let boxCraftLoaded = false;
+let boostletLoaded = false;
+let boxCraftLoaded = false;
 
-// function tryRun() {
-//   if (boostletLoaded && boxCraftLoaded) {
-//     run();
-//   }
-// }
+function tryRun() {
+  if (boostletLoaded && boxCraftLoaded) {
+    run();
+  }
+}
 
 // Load Boostlet script
 let scriptBoostlet = document.createElement("script");
@@ -14,25 +14,25 @@ scriptBoostlet.type = "text/javascript";
 // scriptBoostlet.src = "https://boostlet.org/dist/boostlet.min.js";
 scriptBoostlet.src = "https://shrutivarade.github.io/boostlet/dist/boostlet.min.js";
 // scriptBoostlet.src = "http://localhost:8000/boostlet/dist/boostlet.min.js";
-// scriptBoostlet.onload = function() {
-//   boostletLoaded = true;
-//   tryRun();
-// };
+scriptBoostlet.onload = function() {
+  boostletLoaded = true;
+  tryRun();
+};
 
-scriptBoostlet.onload = run;
+// scriptBoostlet.onload = run;
 
 document.head.appendChild(scriptBoostlet);
 
 // Load BoxCraft script
-// let scriptBoxCraft = document.createElement("script");
-// scriptBoxCraft.type = "module";
-// scriptBoxCraft.src = "https://shrutivarade.github.io/boxcraft/dist/boxcraft.min.js";
-// // scriptBoxCraft.src = "http://localhost:8000/boxcraft/dist/boxcraft.min.js";
-// scriptBoxCraft.onload = function() {
-//   boxCraftLoaded = true;
-//   tryRun();
-// };
-// document.head.appendChild(scriptBoxCraft);
+let scriptBoxCraft = document.createElement("script");
+scriptBoxCraft.type = "module";
+scriptBoxCraft.src = "https://shrutivarade.github.io/BoxCraft/dist/boxCraft.min.js";
+// scriptBoxCraft.src = "http://localhost:8000/boxcraft/dist/boxcraft.min.js";
+scriptBoxCraft.onload = function() {
+  boxCraftLoaded = true;
+  tryRun();
+};
+document.head.appendChild(scriptBoxCraft);
 
 
 function run() {
@@ -41,10 +41,10 @@ function run() {
   Boostlet.init();
 
   //boxcraft
-  Boostlet.load_script('https://shrutivarade.github.io/BoxCraft/dist/boxCraft.min.js', function(){
-    // setup interaction and trigger segmentation
-    Boostlet.select_box( segment_box );
-  })
+  // Boostlet.load_script('https://shrutivarade.github.io/BoxCraft/dist/boxCraft.min.js', function(){
+  //   // setup interaction and trigger segmentation
+  //   Boostlet.select_box( segment_box );
+  // })
 
   // load ONNX.js
   Boostlet.load_script('https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js');
@@ -52,7 +52,8 @@ function run() {
   // grab the embedding
   setup_segment_anything();
 
-  
+  // setup interaction and trigger segmentation
+  Boostlet.select_box( segment_box );
 
 }
 
