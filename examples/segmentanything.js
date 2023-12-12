@@ -41,7 +41,7 @@ function run() {
   Boostlet.init();
 
   //boxcraft
-  Boostlet.load_script('https://shrutivarade.github.io/boxcraft/dist/boxcraft.min.js', function(){
+  Boostlet.load_script('https://shrutivarade.github.io/BoxCraft/dist/boxCraft.min.js', function(){
     // setup interaction and trigger segmentation
     Boostlet.select_box( segment_box );
   })
