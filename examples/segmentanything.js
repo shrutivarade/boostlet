@@ -12,7 +12,7 @@ function tryRun() {
 let scriptBoostlet = document.createElement("script");
 scriptBoostlet.type = "text/javascript";
 // scriptBoostlet.src = "https://boostlet.org/dist/boostlet.min.js";
-scriptBoostlet.src = "https://github.com/shrutivarade/boostlet/blob/main/dist/boostlet.min.js";
+scriptBoostlet.src = "https://raw.githubusercontent.com/shrutivarade/boostlet/development/dist/boostlet.min.js";
 // scriptBoostlet.src = "http://localhost:8000/boostlet/dist/boostlet.min.js";
 scriptBoostlet.onload = function() {
   boostletLoaded = true;
