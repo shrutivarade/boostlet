@@ -180,54 +180,68 @@ export class NiiVue extends Framework {
 
   }
 
-  select_box(callback) {
+  // select_box(callback) {
 
-    // TODO also hacky until official API supports this
+  //   // TODO also hacky until official API supports this
 
-    let canvas = this.instance.canvas;
+  //   let canvas = this.instance.canvas;
 
     
-    canvas.addEventListener('mousedown', function (e) {
-      this.isMouseDown = true;
+  //   canvas.addEventListener('mousedown', function (e) {
+  //     this.isMouseDown = true;
 
-      var rect = e.currentTarget.getBoundingClientRect(),
-      offsetX = e.clientX * window.devicePixelRatio - rect.left * window.devicePixelRatio,
-      offsetY = e.clientY * window.devicePixelRatio - rect.top * window.devicePixelRatio;
+  //     var rect = e.currentTarget.getBoundingClientRect(),
+  //     offsetX = e.clientX * window.devicePixelRatio - rect.left * window.devicePixelRatio,
+  //     offsetY = e.clientY * window.devicePixelRatio - rect.top * window.devicePixelRatio;
 
-      this.x1 = offsetX;
-      this.y1 = offsetY;
-    }.bind(this));
+  //     this.x1 = offsetX;
+  //     this.y1 = offsetY;
+  //   }.bind(this));
 
-    canvas.addEventListener('mousemove', function (e) {
-      if (this.isMouseDown) {
+  //   canvas.addEventListener('mousemove', function (e) {
+  //     if (this.isMouseDown) {
 
-        var rect = e.currentTarget.getBoundingClientRect(),
-        offsetX = e.clientX * window.devicePixelRatio - rect.left * window.devicePixelRatio,
-        offsetY = e.clientY * window.devicePixelRatio - rect.top * window.devicePixelRatio;
+  //       var rect = e.currentTarget.getBoundingClientRect(),
+  //       offsetX = e.clientX * window.devicePixelRatio - rect.left * window.devicePixelRatio,
+  //       offsetY = e.clientY * window.devicePixelRatio - rect.top * window.devicePixelRatio;
 
-        this.x2 = offsetX;
-        this.y2 = offsetY;
-        this.instance.drawSelectionBox([this.x1, this.y1, this.x2-this.x1, this.y2-this.y1]);
-      }
-    }.bind(this));
+  //       this.x2 = offsetX;
+  //       this.y2 = offsetY;
+  //       this.instance.drawSelectionBox([this.x1, this.y1, this.x2-this.x1, this.y2-this.y1]);
+  //     }
+  //   }.bind(this));
 
 
-    canvas.addEventListener('mouseup', function (e) {
-      var rect = e.currentTarget.getBoundingClientRect(),
-      offsetX = e.clientX * window.devicePixelRatio - rect.left * window.devicePixelRatio,
-      offsetY = e.clientY * window.devicePixelRatio - rect.top * window.devicePixelRatio;
+  //   canvas.addEventListener('mouseup', function (e) {
+  //     var rect = e.currentTarget.getBoundingClientRect(),
+  //     offsetX = e.clientX * window.devicePixelRatio - rect.left * window.devicePixelRatio,
+  //     offsetY = e.clientY * window.devicePixelRatio - rect.top * window.devicePixelRatio;
       
-      this.x2 = offsetX;
-      this.y2 = offsetY;
-      this.isMouseDown = false;
+  //     this.x2 = offsetX;
+  //     this.y2 = offsetY;
+  //     this.isMouseDown = false;
 
-      let topleft = {x: this.x1, y: this.y1};
-      let bottomright = {x: this.x2, y: this.y2};
+  //     let topleft = {x: this.x1, y: this.y1};
+  //     let bottomright = {x: this.x2, y: this.y2};
 
+  //     callback(topleft, bottomright);
+
+  //   }.bind(this));
+
+  // }
+
+  select_box(callback){
+    let canvas = this.instance.canvas;
+
+    BoxCraft.createDraggableBBox(canvas, function(topleft, bottomright) {
+      console.log("Inside Draggable BBox",topleft, bottomright);
       callback(topleft, bottomright);
+    });
 
-    }.bind(this));
-
+    // BoxCraft.createResizableBBox(canvas, function(topleft, bottomright) {
+    //   console.log("Inside Draggable BBox",topleft, bottomright);
+    //   callback(topleft, bottomright);
+    // });
   }
 
 }

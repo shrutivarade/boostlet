@@ -95,30 +95,46 @@ export class Cornerstone2D extends Framework {
     
   }
 
-  select_box(callback) {
+  // select_box(callback) {
 
-    this.cornerstonetools_instance.setToolActive('RectangleRoi', { mouseButtonMask: 1 })
+  //   this.cornerstonetools_instance.setToolActive('RectangleRoi', { mouseButtonMask: 1 })
 
+  //   let element = this.instance.getEnabledElements()[0];
+  //   let canvas = element.canvas;
+
+  //   canvas.onmouseup = function() {
+
+  //     let state = this.cornerstonetools_instance.globalImageIdSpecificToolStateManager.saveToolState();
+
+  //     let topleft = state[Object.keys(state).pop()].RectangleRoi.data[0].handles.start;
+  //     let bottomright = state[Object.keys(state).pop()].RectangleRoi.data[0].handles.end;
+
+  //     let topleft_c = this.instance.pixelToCanvas(element.element, topleft);
+  //     let bottomright_c = this.instance.pixelToCanvas(element.element, bottomright);
+
+  //     this.cornerstonetools_instance.clearToolState(element.element, 'RectangleRoi');
+  //     this.instance.renderGrayscaleImage(element, true);
+
+  //     callback(topleft_c, bottomright_c);
+
+  //   }.bind(this);
+
+  // }
+
+  select_box(callback){
     let element = this.instance.getEnabledElements()[0];
     let canvas = element.canvas;
 
-    canvas.onmouseup = function() {
+    BoxCraft.createDraggableBBox(canvas, function(topleft, bottomright) {
+      console.log("Inside Draggable BBox",topleft, bottomright);
+      callback(topleft, bottomright);
+    });
 
-      let state = this.cornerstonetools_instance.globalImageIdSpecificToolStateManager.saveToolState();
-
-      let topleft = state[Object.keys(state).pop()].RectangleRoi.data[0].handles.start;
-      let bottomright = state[Object.keys(state).pop()].RectangleRoi.data[0].handles.end;
-
-      let topleft_c = this.instance.pixelToCanvas(element.element, topleft);
-      let bottomright_c = this.instance.pixelToCanvas(element.element, bottomright);
-
-      this.cornerstonetools_instance.clearToolState(element.element, 'RectangleRoi');
-      this.instance.renderGrayscaleImage(element, true);
-
-      callback(topleft_c, bottomright_c);
-
-    }.bind(this);
-
+    // BoxCraft.createResizableBBox(canvas, function(topleft, bottomright) {
+    //   console.log("Inside Draggable BBox",topleft, bottomright);
+    //   callback(topleft, bottomright);
+    // });
+    
   }
 
 }

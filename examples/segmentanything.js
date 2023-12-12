@@ -1,10 +1,33 @@
-script = document.createElement("script");
-script.type = "text/javascript";
-script.src = "https://boostlet.org/dist/boostlet.min.js";
-script.onload = run;
-document.head.appendChild(script);
-eval(script);
 
+let boostletLoaded = false;
+let boxCraftLoaded = false;
+
+function tryRun() {
+  if (boostletLoaded && boxCraftLoaded) {
+    run();
+  }
+}
+
+// Load Boostlet script
+let scriptBoostlet = document.createElement("script");
+scriptBoostlet.type = "text/javascript";
+scriptBoostlet.src = "https://boostlet.org/dist/boostlet.min.js";
+// scriptBoostlet.src = "http://localhost:8000/dist/boostlet.min.js";
+scriptBoostlet.onload = function() {
+  boostletLoaded = true;
+  tryRun();
+};
+document.head.appendChild(scriptBoostlet);
+
+// Load BoxCraft script
+let scriptBoxCraft = document.createElement("script");
+scriptBoxCraft.type = "module";
+scriptBoxCraft.src = "https://cdn.jsdelivr.net/gh/shrutivarade/BoxCraft/dist/boxCraft.min.js";
+scriptBoxCraft.onload = function() {
+  boxCraftLoaded = true;
+  tryRun();
+};
+document.head.appendChild(scriptBoxCraft);
 
 
 function run() {
