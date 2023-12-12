@@ -12,7 +12,7 @@ function tryRun() {
 let scriptBoostlet = document.createElement("script");
 scriptBoostlet.type = "text/javascript";
 // scriptBoostlet.src = "https://boostlet.org/dist/boostlet.min.js";
-scriptBoostlet.src = "https://raw.githubusercontent.com/shrutivarade/boostlet/development/dist/boostlet.min.js";
+scriptBoostlet.src = "https://shrutivarade.github.io/boostlet/dist/boostlet.min.js";
 // scriptBoostlet.src = "http://localhost:8000/boostlet/dist/boostlet.min.js";
 scriptBoostlet.onload = function() {
   boostletLoaded = true;
@@ -23,7 +23,7 @@ document.head.appendChild(scriptBoostlet);
 // Load BoxCraft script
 let scriptBoxCraft = document.createElement("script");
 scriptBoxCraft.type = "module";
-scriptBoxCraft.src = "https://github.com/shrutivarade/BoxCraft/blob/main/dist/boxCraft.min.js";
+scriptBoxCraft.src = "https://shrutivarade.github.io/boxcraft/dist/boxcraft.min.js";
 // scriptBoxCraft.src = "http://localhost:8000/boxcraft/dist/boxcraft.min.js";
 scriptBoxCraft.onload = function() {
   boxCraftLoaded = true;
