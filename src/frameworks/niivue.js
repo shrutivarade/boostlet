@@ -235,7 +235,8 @@ export class NiiVue extends Framework {
 
     BoxCraft.createDraggableBBox(canvas, function(topleft, bottomright) {
       console.log("Inside Draggable BBox",topleft, bottomright);
-      callback(topleft, bottomright);
+      console.log("Inside Draggable BBox",topleft*window.devicePixelRatio, bottomright*window.devicePixelRatio);
+      callback(topleft*window.devicePixelRatio, bottomright*window.devicePixelRatio);
     });
 
     // BoxCraft.createResizableBBox(canvas, function(topleft, bottomright) {
