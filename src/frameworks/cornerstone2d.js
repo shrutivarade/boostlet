@@ -1,36 +1,29 @@
-import {Framework} from '../framework.js';
+import { Framework } from "../framework.js";
 
-import {Util} from '../util.js';
+import { Util } from "../util.js";
 
 export class Cornerstone2D extends Framework {
-  
   constructor(instance) {
-
     super(instance);
-    this.name = 'cornerstone2D';
+    this.name = "cornerstone2D";
 
     this.cornerstonetools_instance = null;
 
-    if (typeof window.cornerstoneTools != 'undefined') {
-
+    if (typeof window.cornerstoneTools != "undefined") {
       // TODO probably not too robust
       this.cornerstonetools_instance = window.cornerstoneTools;
-
     }
 
     this.flip_on_png = false;
-
   }
 
   get_image(from_canvas) {
-
     let element = this.instance.getEnabledElements()[0];
     let pixels = null;
     let width = null;
     let height = null;
 
-    if (typeof from_canvas != 'undefined') {
-
+    if (typeof from_canvas != "undefined") {
       // TODO this is hacky going through the canvas
       // later should grab the real volume data
 
@@ -38,27 +31,22 @@ export class Cornerstone2D extends Framework {
       width = canvas.width;
       height = canvas.height;
 
-      let  ctx = canvas.getContext('2d');
+      let ctx = canvas.getContext("2d");
 
       let imagedata = ctx.getImageData(0, 0, width, height);
       pixels = imagedata.data;
-
     } else {
-
       // this is the real image slice data
       let imagedata = element.image;
       pixels = imagedata.getPixelData();
       width = imagedata.width;
       height = imagedata.height;
-
     }
 
-    return {'data':pixels, 'width':width, 'height':height};
-
+    return { data: pixels, width: width, height: height };
   }
 
   set_image(new_pixels) {
-
     let element = this.instance.getEnabledElements()[0];
     let pixels = element.image.getPixelData();
 
@@ -67,11 +55,9 @@ export class Cornerstone2D extends Framework {
 
     // Re-render the current slice
     cornerstone.renderGrayscaleImage(element, true);
-
   }
 
   set_mask(new_mask) {
-
     // TODO this needs to use segmentation/labelmap layers
     // from cornerstone
     // right now, this is modifying the canvas
@@ -82,7 +68,7 @@ export class Cornerstone2D extends Framework {
     width = canvas.width;
     height = canvas.height;
 
-    let ctx = canvas.getContext('2d');
+    let ctx = canvas.getContext("2d");
 
     let imagedata = ctx.getImageData(0, 0, width, height);
     let pixels = imagedata.data;
@@ -92,7 +78,6 @@ export class Cornerstone2D extends Framework {
     let masked_image_as_imagedata = new ImageData(masked_image, width, height);
 
     ctx.putImageData(masked_image_as_imagedata, 0, 0);
-    
   }
 
   // select_box(callback) {
@@ -121,12 +106,12 @@ export class Cornerstone2D extends Framework {
 
   // }
 
-  select_box(callback){
+  select_box(callback) {
     let element = this.instance.getEnabledElements()[0];
     let canvas = element.canvas;
 
-    BoxCraft.createDraggableBBox(canvas, function(topleft, bottomright) {
-      console.log("Inside Draggable BBox",topleft, bottomright);
+    BoxCraft.createDraggableBBox(canvas, function (topleft, bottomright) {
+      console.log("Inside Draggable BBox", topleft, bottomright);
       callback(topleft, bottomright);
     });
 
@@ -134,7 +119,5 @@ export class Cornerstone2D extends Framework {
     //   console.log("Inside Draggable BBox",topleft, bottomright);
     //   callback(topleft, bottomright);
     // });
-    
   }
-
 }
