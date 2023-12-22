@@ -19,7 +19,7 @@ frameworks with extra functionality such as processing
    git clone https://github.com/mpsych/boostlet.git
 2. <script src="https://raw.githubusercontent.com/mpsych/boostlet/main/dist/boostlet.min.js"></script>
 
-##Usage
+## Usage
 
 Drag a Boostlet to your bookmarks bar, visit a supported data repository, and click the Boostlet to process the displayed image.
 
