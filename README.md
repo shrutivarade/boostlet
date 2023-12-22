@@ -16,7 +16,7 @@ frameworks with extra functionality such as processing
 ## Getting Started
 1. Clone the repository:
    ```bash
-   git clone https://github.com/mpsych/boostlet.git
+   git clone git@github.com:shrutivarade/boostlet.git
 2. <script src="https://raw.githubusercontent.com/mpsych/boostlet/main/dist/boostlet.min.js"></script>
 
 ## Usage
