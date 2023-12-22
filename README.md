@@ -11,7 +11,7 @@ frameworks with extra functionality such as processing
 - Easy integration with existing visualization frameworks.
 - Drag-and-drop Boostlets for straightforward installation.
 - Standard API for pixel data access and user interactions.
-- Compatibility with BoxCraft for enhanced region-of-interest selections.
+- Compatibility with BoxCraft (https://github.com/shrutivarade/BoxCraft) for enhanced region-of-interest selections.
 
 ## Getting Started
 1. Clone the repository:
