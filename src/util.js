@@ -43,15 +43,27 @@ export class Util {
 
   static async load_script(url, callback) {
 
+    // // introducing hack to make it work for openneuro
+    // window.Object.defineProperty(window.Object.prototype, 'global', {
+    //   get( ){
+    //     return window;
+    //   },
+    //   set(newGlobal) {
+    //     globalThis = newGlobal;
+    //   }
+    // });
+
     // introducing hack to make it work for openneuro
-    window.Object.defineProperty(window.Object.prototype, 'global', {
-      get( ){
-        return window;
-      },
-      set(newGlobal) {
-        globalThis = newGlobal;
-      }
-    });
+    if (window.global === 'undefined') {
+      window.Object.defineProperty(window.Object.prototype, 'global', {
+        get( ){
+          return window;
+        },
+        set(newGlobal) {
+          globalThis = newGlobal;
+        }
+      });      
+    }
 
     const script = window.document.createElement("script")
     script.type = "text/javascript"

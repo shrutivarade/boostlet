@@ -11,12 +11,12 @@ frameworks with extra functionality such as processing
 - Easy integration with existing visualization frameworks.
 - Drag-and-drop Boostlets for straightforward installation.
 - Standard API for pixel data access and user interactions.
-- Compatibility with BoxCraft for enhanced region-of-interest selections.
+- Compatibility with BoxCraft (https://github.com/shrutivarade/BoxCraft) for enhanced region-of-interest selections.
 
 ## Getting Started
 1. Clone the repository:
    ```bash
-   git clone https://github.com/mpsych/boostlet.git
+   git clone git@github.com:shrutivarade/boostlet.git
 2. <script src="https://raw.githubusercontent.com/mpsych/boostlet/main/dist/boostlet.min.js"></script>
 
 ## Usage
@@ -47,4 +47,3 @@ We welcome contributions! Please fork the repository and submit a pull request w
 ## License
 
 Boostlet.js is open-source software licensed under the MIT license.
-
