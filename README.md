@@ -1,4 +1,4 @@
-# Boostlet.js
+# Boostlet.js (https://shrutivarade.github.io/boostlet/)
 
 ## Introduction
 Boostlet.js is an innovative framework designed to extend the capabilities of web-based biomedical image visualization libraries with powerful image processing features. It allows the seamless integration of image processing modules, known as Boostlets, across various frameworks like Cornerstone2D.js, NiiVue.js, and OpenSeaDragon.js. Boostlets are modules that can extend web-based visualization
