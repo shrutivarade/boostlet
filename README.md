@@ -45,7 +45,7 @@ Cornerstone2D.js
 NiiVue.js
 OpenSeaDragon.js
 
-## Contributers
+## Contributors
 
 We welcome contributions! Please fork the repository and submit a pull request with your proposed changes.
 
