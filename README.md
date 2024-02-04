@@ -18,8 +18,8 @@ frameworks with extra functionality such as processing
    ```bash
    git clone git@github.com:shrutivarade/boostlet.git
    
- 2. Import this script tag
-    '''bash 
+ 2. Import this script tag:
+    ```bash
    <script src="https://raw.githubusercontent.com/mpsych/boostlet/main/dist/boostlet.min.js"></script>
 
 ## Usage
