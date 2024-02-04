@@ -17,7 +17,10 @@ frameworks with extra functionality such as processing
 1. Clone the repository:
    ```bash
    git clone git@github.com:shrutivarade/boostlet.git
-2. <script src="https://raw.githubusercontent.com/mpsych/boostlet/main/dist/boostlet.min.js"></script>
+   
+ 2. Import this script tag
+    '''bash 
+   <script src="https://raw.githubusercontent.com/mpsych/boostlet/main/dist/boostlet.min.js"></script>
 
 ## Usage
 
