@@ -44,7 +44,8 @@ During development, to prototype in the JS Console, there are two entrypoints:
 Cornerstone2D.js
 NiiVue.js
 OpenSeaDragon.js
-Contributing
+
+## Contributers
 
 We welcome contributions! Please fork the repository and submit a pull request with your proposed changes.
 
