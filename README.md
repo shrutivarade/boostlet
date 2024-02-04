@@ -20,8 +20,9 @@ frameworks with extra functionality such as processing
    
  2. Import this script tag:
     ```bash
-   <script src="https://raw.githubusercontent.com/mpsych/boostlet/main/dist/boostlet.min.js"></script>
+    <script src="https://raw.githubusercontent.com/mpsych/boostlet/main/dist/boostlet.min.js"></script>
 
+   
 ## Usage
 
 Drag a Boostlet to your bookmarks bar, visit a supported data repository, and click the Boostlet to process the displayed image.
