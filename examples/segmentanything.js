@@ -1,3 +1,4 @@
+
 let boostletLoaded = false;
 let boxCraftLoaded = false;
 
@@ -41,6 +42,12 @@ function run() {
   
   // detect visualization framework
   Boostlet.init();
+
+  //boxcraft
+  // Boostlet.load_script('https://shrutivarade.github.io/BoxCraft/dist/boxCraft.min.js', function(){
+  //   // setup interaction and trigger segmentation
+  //   Boostlet.select_box( segment_box );
+  // })
 
   // load ONNX.js
   Boostlet.load_script('https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js');

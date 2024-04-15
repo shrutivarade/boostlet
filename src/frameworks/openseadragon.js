@@ -1,20 +1,37 @@
-import {Framework} from '../framework.js';
+import { Framework } from "../framework.js";
 
-import {Util} from '../util.js';
+import { Util } from "../util.js";
 
 import {CanvasFallback} from './canvasFallback.js';
 
 export class OpenSeaDragon extends Framework {
+
     constructor(instance) {
         super(instance);
         this.name = 'opensedragon';
         this.canvasFallback = new CanvasFallback();
 
+
+    if (!viewer) {
+      throw "OpenSeaDragon viewer not found.";
     }
+
 
     get_image(from_canvas) {
         return this.canvasFallback.get_image(from_canvas);
+
     }
+  }
+
+  set_image(new_pixels) {
+    let viewer = null;
+    let vs = this.instance._viewers;
+    vs.forEach(function (e) {
+      if (e.id == "viewer") {
+        viewer = e;
+      }
+    });
+
 
     set_image(new_pixels) {
         return this.canvasFallback.set_image(new_pixels);
@@ -35,9 +52,10 @@ export class OpenSeaDragon extends Framework {
           throw "OpenSeaDragon viewer not found.";
         }
 
-        let canvas = viewer.canvas.children[0];
-        width = canvas.width;
-        height = canvas.height;
+
+    ctx.putImageData(masked_image_as_imagedata, 0, 0);
+  }
+
 
         let ctx = canvas.getContext("2d");
         let imagedata = ctx.getImageData(0, 0, width, height);
@@ -69,9 +87,21 @@ export class OpenSeaDragon extends Framework {
         callback(topleft, bottomright);
       });
 
+
+    if (!viewer) {
+      throw "OpenSeaDragon viewer not found.";
     }
 
-    
+    let canvas = viewer.canvas;
 
+    BoxCraft.createDraggableBBox(canvas, function (topleft, bottomright) {
+      console.log("Inside Draggable BBox", topleft, bottomright);
+      callback(topleft, bottomright);
+    });
+
+    // BoxCraft.createResizableBBox(canvas, function(topleft, bottomright) {
+    //   console.log("Inside Draggable BBox",topleft, bottomright);
+    //   callback(topleft, bottomright);
+    // });
+  }
 }
-  

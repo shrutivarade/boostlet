@@ -1,39 +1,34 @@
-import {Framework} from '../framework.js';
+import { Framework } from "../framework.js";
 
-import {Util} from '../util.js';
+import { Util } from "../util.js";
 
 import {CanvasFallback} from './canvasFallback.js';
 
 export class Cornerstone2D extends Framework {
-  
   constructor(instance) {
-
     super(instance);
+
     this.name = 'cornerstone2D';
     this.canvasFallback = new CanvasFallback();
 
+
     this.cornerstonetools_instance = null;
 
-    if (typeof window.cornerstoneTools != 'undefined') {
-
+    if (typeof window.cornerstoneTools != "undefined") {
       // TODO probably not too robust
       this.cornerstonetools_instance = window.cornerstoneTools;
-
     }
 
     this.flip_on_png = false;
-
   }
 
   get_image(from_canvas) {
-
     let element = this.instance.getEnabledElements()[0];
     let pixels = null;
     let width = null;
     let height = null;
 
-    if (typeof from_canvas != 'undefined') {
-
+    if (typeof from_canvas != "undefined") {
       // TODO this is hacky going through the canvas
       // later should grab the real volume data
 
@@ -41,27 +36,22 @@ export class Cornerstone2D extends Framework {
       width = canvas.width;
       height = canvas.height;
 
-      let  ctx = canvas.getContext('2d');
+      let ctx = canvas.getContext("2d");
 
       let imagedata = ctx.getImageData(0, 0, width, height);
       pixels = imagedata.data;
-
     } else {
-
       // this is the real image slice data
       let imagedata = element.image;
       pixels = imagedata.getPixelData();
       width = imagedata.width;
       height = imagedata.height;
-
     }
 
-    return {'data':pixels, 'width':width, 'height':height};
-
+    return { data: pixels, width: width, height: height };
   }
 
   set_image(new_pixels) {
-
     let element = this.instance.getEnabledElements()[0];
     let pixels = element.image.getPixelData();
 
@@ -70,15 +60,16 @@ export class Cornerstone2D extends Framework {
 
     // Re-render the current slice
     cornerstone.renderGrayscaleImage(element, true);
-
   }
 
   set_mask(new_mask) {
+
     return this.canvasFallback.set_mask(new_mask);
     
   }
 
-  select_box(callback) {
+  // select_box(callback) {
+
 
     if(this.cornerstonetools_instance.RectangleRoiTool === undefined) {
       console.log("Using Boxcraft library to handle box selection.");
@@ -134,6 +125,7 @@ export class Cornerstone2D extends Framework {
       }.bind(this);
     }
 
-  }
+  // }
 
 }
+
