@@ -68,7 +68,7 @@ export class Cornerstone2D extends Framework {
     
   }
 
-  // select_box(callback) {
+  select_box(callback) {
 
 
     if(this.cornerstonetools_instance.RectangleRoiTool === undefined) {
@@ -125,7 +125,7 @@ export class Cornerstone2D extends Framework {
       }.bind(this);
     }
 
-  // }
+  }
 
 }
 
