@@ -1,7 +1,6 @@
 script = document.createElement("script");
 script.type = "text/javascript";
-// script.src = "https://boostlet.org/dist/boostlet.min.js";
-script.src = "https://shrutivarade.github.io/boostlet/dist/boostlet.min.js";
+script.src = "https://boostlet.org/dist/boostlet.min.js";
 
 script.onload = run;
 document.head.appendChild(script);
@@ -11,6 +10,8 @@ function run() {
   
   // detect visualization framework
   Boostlet.init();
+
+  all_pixels = Boostlet.get_image().data;
 
   // load Plotly.js library and start plotting in the onload callback
   Boostlet.load_script('https://cdn.plot.ly/plotly-2.25.2.min.js', plot);
@@ -32,22 +33,10 @@ function plot() {
   }
   window.document.body.appendChild(container);
 
-  updatePlot();
-
-}
-
-function updatePlot(){
-
-  all_pixels = Boostlet.get_image().data;
-
   // plot the data
   Plotly.newPlot('plotlyDiv', [{
     x: all_pixels,
     type: 'histogram'
   }]);
 
-  console.log("updated")
-  // redraw every second to keep up with incoming data
-  setTimeout(updatePlot, 10);
- 
 }
